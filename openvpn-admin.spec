@@ -6,13 +6,16 @@
 Summary: 	%Summary
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License: 	GPL
 Group: 		Networking/Other
-URL:		http://sourceforge.net/projects/openvpnadmin
+URL:		http://sourceforge.net/projects/openvpn-admin
 
 Source:		http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%name-icons.tar.bz2
+Patch:          openvpn-admin-1.9.4-pam.patch
+# http://openvpn-admin.svn.sourceforge.net/viewvc/openvpn-admin?view=rev&revision=160
+Patch1:         openvpn-admin-1.9.4-newsharpbuild.patch
 BuildRoot: 	%_tmppath/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires: gtk-sharp2
@@ -30,6 +33,8 @@ and runs under Linux and Windows.
 
 %prep
 %setup -q -a1
+%patch -p1
+%patch1 -p2
 
 %build
 %configure2_5x
@@ -95,6 +100,4 @@ rm -rf %buildroot
 %_liconsdir/%name.png
 %_miconsdir/%name.png
 %_iconsdir/%name.png
-
-
 
