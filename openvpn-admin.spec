@@ -48,24 +48,17 @@ rm -rf %buildroot
 
 %find_lang %name
 
-# menu
-mkdir -p %buildroot/%_menudir
-cat > %buildroot/%_menudir/%name << EOF
-?package(%name): \
-command="%_bindir/%name" \
-needs="x11" \
-icon="%name.png" \
-section="System/Configuration/Networking" \
-title="OpenVPN Admin" \
-longtitle="%Summary" \
-xdg="true"
-EOF
+#fix icon path in desktop file
+sed '/Icon/d' %{buildroot}%{_datadir}/applications/%{name}.desktop  > %{buildroot}%{_datadir}/applications/temp.desktop
+sed '/^Exec/a Icon=openvpn-admin' %{buildroot}%{_datadir}/applications/temp.desktop > %{buildroot}%{_datadir}/applications/%{name}.desktop
+rm -r %{buildroot}%{_datadir}/applications/temp.desktop
+
 
 desktop-file-install --vendor="" \
+  --remove-key="Version" \
   --remove-category="Application" \
   --add-category="Network" \
   --add-category="Settings" \
-  --add-category="X-MandrivaLinux-System-Configuration-Networking" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 # icon
@@ -96,7 +89,6 @@ rm -rf %buildroot
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/%name.desktop
 %{_libdir}/%name/%name.exe
-%_menudir/%name
 %_liconsdir/%name.png
 %_miconsdir/%name.png
 %_iconsdir/%name.png
