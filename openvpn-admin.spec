@@ -51,7 +51,7 @@ rm -rf %buildroot
 #fix icon path in desktop file
 sed '/Icon/d' %{buildroot}%{_datadir}/applications/%{name}.desktop  > %{buildroot}%{_datadir}/applications/temp.desktop
 sed '/^Exec/a Icon=openvpn-admin' %{buildroot}%{_datadir}/applications/temp.desktop > %{buildroot}%{_datadir}/applications/%{name}.desktop
-rm -r %{buildroot}%{_datadir}/applications/temp.desktop
+rm -f %{buildroot}%{_datadir}/applications/temp.desktop
 
 
 desktop-file-install --vendor="" \
