@@ -16,6 +16,7 @@ Source1:	%name-icons.tar.bz2
 Patch:          openvpn-admin-1.9.4-pam.patch
 # http://openvpn-admin.svn.sourceforge.net/viewvc/openvpn-admin?view=rev&revision=160
 Patch1:         openvpn-admin-1.9.4-newsharpbuild.patch
+BuildRoot: 	%_tmppath/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires: gtk-sharp2
 BuildRequires: mono
