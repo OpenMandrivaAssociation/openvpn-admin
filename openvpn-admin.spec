@@ -6,7 +6,7 @@
 Summary: 	%Summary
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 2
+Release: 	%mkrel 3
 License: 	GPL
 Group: 		Networking/Other
 URL:		http://sourceforge.net/projects/openvpn-admin
@@ -16,6 +16,8 @@ Source1:	%name-icons.tar.bz2
 Patch:          openvpn-admin-1.9.4-pam.patch
 # http://openvpn-admin.svn.sourceforge.net/viewvc/openvpn-admin?view=rev&revision=160
 Patch1:         openvpn-admin-1.9.4-newsharpbuild.patch
+# http://qa.mandriva.com/show_bug.cgi?id=38809
+Patch2:		openvpn-admin-1.9.4-fix-exe-x86_64.patch
 BuildRoot: 	%_tmppath/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires: gtk-sharp2
@@ -35,6 +37,7 @@ and runs under Linux and Windows.
 %setup -q -a1
 %patch -p1
 %patch1 -p2
+%patch2 -p1
 
 %build
 %configure2_5x
@@ -67,7 +70,7 @@ desktop-file-install --vendor="" \
 %__install -D -m 644 %{name}16.png %buildroot/%_miconsdir/%name.png
 
 mkdir %buildroot/usr/bin
-ln -s %buildroot/usr/sbin/%name %buildroot/usr/bin/%name
+ln -s /usr/sbin/%name %buildroot/usr/bin/%name
 
 %post
 %update_menus
