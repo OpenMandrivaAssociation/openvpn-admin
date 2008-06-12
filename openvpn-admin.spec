@@ -72,11 +72,15 @@ desktop-file-install --vendor="" \
 mkdir %buildroot/usr/bin
 ln -s /usr/sbin/%name %buildroot/usr/bin/%name
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
 
 %clean
 rm -rf %buildroot
