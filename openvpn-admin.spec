@@ -6,7 +6,7 @@
 Summary: 	%Summary
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 5
+Release: 	%mkrel 6
 License: 	GPL
 Group: 		Networking/Other
 URL:		http://sourceforge.net/projects/openvpn-admin
@@ -27,8 +27,11 @@ BuildRequires: desktop-file-utils
 BuildRequires: perl(XML::Parser)
 BuildRequires: glade-sharp2
 
-Requires:      openvpn
 Requires:      gksu
+Requires:      gtk-sharp2
+Requires:      mono
+Requires:      openvpn
+
 %description
 OpenVPN-Admin is a GUI for OpenVPN it is writen in Mono 
 and runs under Linux and Windows.
