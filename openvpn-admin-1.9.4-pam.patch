@@ -1,0 +1,11 @@
+--- openvpn-admin-1.9.4/openvpn-admin.pam.orig	2007-10-02 14:42:18.000000000 -0300
++++ openvpn-admin-1.9.4/openvpn-admin.pam	2007-10-02 14:42:42.000000000 -0300
+@@ -1,7 +1,7 @@
+ #%PAM-1.0
+ auth       sufficient	pam_rootok.so
+ auth       sufficient   pam_timestamp.so
+-auth       required	pam_stack.so service=system-auth
++auth       include      system-auth
+ session	   required	pam_permit.so
+ session    optional	pam_xauth.so
+ session    optional     pam_timestamp.so

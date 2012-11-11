@@ -1,0 +1,31 @@
+--- trunk/openvpn-admin/src/Configuration.cs	2007/09/05 11:50:28	159
++++ trunk/openvpn-admin/src/Configuration.cs	2007/09/05 12:55:27	160
+@@ -33,7 +33,7 @@
+ 
+ namespace OpenVPN.Admin
+ {
+-	public delegate void ActivateDelegate(System.IO.StreamWriter input, bool askname);
++	public delegate void ConnectionActivateDelegate(System.IO.StreamWriter input, bool askname);
+ 	
+ 	public class Configuration
+ 	{
+@@ -409,7 +409,7 @@
+ 				throw new Exception(Catalog.GetString("Invalid passphrase"));
+ 		}
+ 
+-		public static bool Activate(string entry, ActivateDelegate input)
++		public static bool Activate(string entry, ConnectionActivateDelegate input)
+ 		{
+ 			string contents;
+ 			string filename = Configuration.FileFromEntry(entry);
+--- trunk/openvpn-admin/src/MainWindow.cs	2007/09/05 11:50:28	159
++++ trunk/openvpn-admin/src/MainWindow.cs	2007/09/05 12:55:27	160
+@@ -500,7 +500,7 @@
+ 	        			return;
+         		}
+         		
+-				if (Configuration.Activate(this.SelectedEntry, new ActivateDelegate(RequestPassword)))
++				if (Configuration.Activate(this.SelectedEntry, new ConnectionActivateDelegate(RequestPassword)))
+ 				{
+ 					this.activeConnections = this.activeConnections + 1;
+ 					this.RefreshCurrentEntry();

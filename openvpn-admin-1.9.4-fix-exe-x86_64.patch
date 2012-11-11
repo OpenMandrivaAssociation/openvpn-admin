@@ -1,0 +1,7 @@
+diff -p -up openvpn-admin-1.9.4/openvpn-admin.in.orig openvpn-admin-1.9.4/openvpn-admin.in
+--- openvpn-admin-1.9.4/openvpn-admin.in.orig	2008-03-13 00:03:48.000000000 -0300
++++ openvpn-admin-1.9.4/openvpn-admin.in	2008-03-13 00:04:00.000000000 -0300
+@@ -1,2 +1,2 @@
+ #!/bin/sh
+-exec @MONO@ @prefix@/lib/openvpn-admin/openvpn-admin.exe $MONO_EXTRA_ARGS "$@"
++exec @MONO@ @libdir@/openvpn-admin/openvpn-admin.exe $MONO_EXTRA_ARGS "$@"
