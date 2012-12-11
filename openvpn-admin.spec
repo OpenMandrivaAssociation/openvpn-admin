@@ -6,7 +6,7 @@
 Summary: 	%Summary
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 8
+Release: 	%mkrel 7
 License: 	GPL
 Group: 		Networking/Other
 URL:		http://sourceforge.net/projects/openvpn-admin
@@ -102,4 +102,67 @@ rm -rf %buildroot
 %_liconsdir/%name.png
 %_miconsdir/%name.png
 %_iconsdir/%name.png
+
+
+
+%changelog
+* Mon Sep 14 2009 Thierry Vignaud <tvignaud@mandriva.com> 1.9.4-7mdv2010.0
++ Revision: 440446
+- rebuild
+
+* Mon Nov 03 2008 Herton Ronaldo Krzesinski <herton@mandriva.com.br> 1.9.4-6mdv2009.1
++ Revision: 299516
+- Add requires for mono and gtk-sharp2 (#45425).
+
+* Wed Jul 30 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.9.4-5mdv2009.0
++ Revision: 254895
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Thu Mar 13 2008 Herton Ronaldo Krzesinski <herton@mandriva.com.br> 1.9.4-3mdv2008.1
++ Revision: 187293
+- Fixed openvpn-admin symlink in /usr/bin (#38808).
+- Fixed openvpn-admin doesn't load on x86_64 (#38809).
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Oct 02 2007 Herton Ronaldo Krzesinski <herton@mandriva.com.br> 1.9.4-2mdv2008.0
++ Revision: 94827
+- Typo fix.
+
+  + Emmanuel Andry <eandry@mandriva.org>
+    - fix desktop file validation
+
+  + Andreas Hasenack <andreas@mandriva.com>
+    - fix pam config (#20882)
+    - fix build with new gtk-sharp
+
+
+* Wed Feb 28 2007 Jérôme Soyer <saispo@mandriva.org> 1.9.4-1mdv2007.0
++ Revision: 126944
+- New release 1.9.4
+
+* Wed Oct 18 2006 Nicolas Lécureuil <neoclust@mandriva.org> 1.9.3-4mdv2007.0
++ Revision: 65806
+- Fix Requires
+
+* Tue Oct 17 2006 Nicolas Lécureuil <neoclust@mandriva.org> 1.9.3-3mdv2006.0
++ Revision: 65658
+- Add BuildRequires
+- Add BuildRequires
+- Migrate to XDG
+- import openvpn-admin-1.9.3-2mdk
+
+* Sun Apr 23 2006 Jerome Soyer <saispo@mandriva.org> 1.9.3-2mdk
+- Readd the exe file
+- Use %%{1}mdk
+
+* Sun Apr 23 2006 Jerome Soyer <saispo@mandriva.org> 1.9.3-1mdk
+- First build
 
