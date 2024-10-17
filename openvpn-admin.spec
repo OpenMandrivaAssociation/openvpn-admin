@@ -9,7 +9,7 @@ Version: 	%version
 Release: 	%mkrel 7
 License: 	GPL
 Group: 		Networking/Other
-URL:		http://sourceforge.net/projects/openvpn-admin
+URL:		https://sourceforge.net/projects/openvpn-admin
 
 Source:		http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%name-icons.tar.bz2
