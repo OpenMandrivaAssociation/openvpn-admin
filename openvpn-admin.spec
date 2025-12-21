@@ -20,6 +20,11 @@ Patch1:         openvpn-admin-1.9.4-newsharpbuild.patch
 Patch2:		openvpn-admin-1.9.4-fix-exe-x86_64.patch
 BuildRoot: 	%_tmppath/%{name}-%{version}-%{release}-buildroot
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: gtk-sharp2
 BuildRequires: mono
 BuildRequires: gtk+2.0
