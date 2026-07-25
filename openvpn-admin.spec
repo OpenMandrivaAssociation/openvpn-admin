@@ -6,7 +6,7 @@
 Summary: 	%Summary
 Name: 		%name
 Version: 	%version
-Release: 	%mkrel 7
+Release: 	8
 License: 	GPL
 Group: 		Networking/Other
 URL:		https://sourceforge.net/projects/openvpn-admin
